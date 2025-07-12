@@ -103,24 +103,6 @@ textarea:not([rows]) {
 
 /* Styles supplémentaires pour les thèmes */
 
-/* Liens */
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-
-  &:hover {
-    color: var(--color-primary-dark);
-    text-decoration: underline;
-  }
-
-  &:focus {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-    border-radius: var(--radius-sm);
-  }
-}
-
 /* Boutons de base */
 button {
   background-color: var(--color-primary);
@@ -231,8 +213,21 @@ h4 {
   }
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  background-color: var(--color-background-secondary);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px -8px var(--color-shadow-primary);
+  border: 1px solid var(--color-border-light);
+}
+
 .min-h {
-    &-70 {
-        min-height: 70vh;
-    }
+  &-70 {
+    min-height: 70vh;
+  }
 }
