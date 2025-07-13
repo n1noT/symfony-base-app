@@ -10,7 +10,7 @@
 
 <div class="example-wrapper">
     <h2>👋​ {{ 'IDS_WELCOME' | trans }}</h2>
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    {% if app.user %}
         <p>{{ 'IDS_HELLO' | trans }} {{ app.user.email }} !</p>
     {% else %}
         <p>{{ 'IDS_HELLO' | trans }} !</p>

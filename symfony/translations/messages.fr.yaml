@@ -18,3 +18,4 @@ IDS_PASSWORD_MIN_LENGTH: "Votre mot de passe doit comporter au moins %min_length
 IDS_ACCESS_DENIED: "Accès refusé"
 IDS_ACCESS_DENIED_MESSAGE: "Vous n'avez pas la permission d'accéder à cette page."
 IDS_ACCOUNT_INACTIVE: "Vous n'êtes pas autorisé à vous connecter."
+IDS_REMEMBER_ME: "Se souvenir de moi"

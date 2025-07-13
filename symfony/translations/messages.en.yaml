@@ -18,3 +18,4 @@ IDS_PASSWORD_MIN_LENGTH: "Your password must be at least %min_length% characters
 IDS_ACCESS_DENIED: "Access denied"
 IDS_ACCESS_DENIED_MESSAGE: "You do not have permission to access this page."
 IDS_ACCOUNT_INACTIVE: "Your are not allowed to login."
+IDS_REMEMBER_ME: "Remember me"
