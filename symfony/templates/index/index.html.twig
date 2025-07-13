@@ -9,11 +9,11 @@
 </style>
 
 <div class="example-wrapper">
-    <h2>👋​ Welcome on Symfony Base Application</h2>
+    <h2>👋​ {{ 'IDS_WELCOME' | trans }}</h2>
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <p>Hello {{ app.user.email }}!</p>
+        <p>{{ 'IDS_HELLO' | trans }} {{ app.user.email }} !</p>
     {% else %}
-        <p>Hello Guest!</p>
+        <p>{{ 'IDS_HELLO' | trans }} !</p>
     {% endif %}
 </div>
 {% endblock %}

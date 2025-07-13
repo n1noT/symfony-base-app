@@ -6,9 +6,12 @@ use App\Entity\User as AppUser;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAccountStatusException;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserChecker implements UserCheckerInterface
 {
+    public function __construct(private TranslatorInterface $translator) {}
+
     public function checkPreAuth(UserInterface $user): void
     {
         if (!$user instanceof AppUser) {
@@ -17,7 +20,8 @@ class UserChecker implements UserCheckerInterface
 
         if (!$user->isActive()) {
             // the message passed to this exception is meant to be displayed to the user
-            throw new CustomUserMessageAccountStatusException('Your are not allowed to login.');
+            $errorMessage = $this->translator->trans('IDS_ACCOUNT_INACTIVE');
+            throw new CustomUserMessageAccountStatusException($errorMessage);
         }
     }
 

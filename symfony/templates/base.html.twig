@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
         {% endblock %}
@@ -17,15 +17,15 @@
                 <h1>Symfony Base Application</h1>
                 <nav class="nav">
                     <ul>
-                        <li><a href="{{ path('app_index') }}">Home</a></li>
+                        <li><a href="{{ path('app_index') }}">{{ 'IDS_HOME' | trans}}</a></li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             {% if is_granted('ROLE_ADMIN') %}
-                                <li><a href="{{ path('app_admin_dashboard') }}">Admin Dashboard</a></li>
+                                <li><a href="{{ path('app_admin_dashboard') }}">{{ 'IDS_ADMIN_DASHBOARD' | trans}}</a></li>
                             {% endif %}
-                            <li><a href="{{ path('app_logout') }}">Logout</a></li>
+                            <li><a href="{{ path('app_logout') }}">{{ 'IDS_LOGOUT' | trans}}</a></li>
                         {% else %}
-                            <li><a href="{{ path('app_login') }}">Login</a></li>
-                            <li><a href="{{ path('app_register') }}">Register</a></li>
+                            <li><a href="{{ path('app_login') }}">{{ 'IDS_LOGIN' | trans}}</a></li>
+                            <li><a href="{{ path('app_register') }}">{{ 'IDS_REGISTER' | trans}}</a></li>
                         {% endif %}
                     </ul>
                 </nav>
