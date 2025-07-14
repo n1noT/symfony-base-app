@@ -1,16 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller\Admin;
 
 use App\Entity\User;
-use EasyCorp\Bundle\EasyAdminBundle\Config\{Action, Actions, Crud};
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -39,11 +43,11 @@ class UserCrudController extends AbstractCrudController
                     'type' => PasswordType::class,
                     'first_options' => [
                         'label' => 'Password',
-                        'hash_property_path' => 'password'
+                        'hash_property_path' => 'password',
                     ],
                     'second_options' => ['label' => '(Repeat)'],
                     'mapped' => false,
-                    ])
+                ])
                 ->onlyOnForms()
                 ->setRequired($pageName === Crud::PAGE_NEW),
             ChoiceField::new('roles')
@@ -54,8 +58,7 @@ class UserCrudController extends AbstractCrudController
                 ->allowMultipleChoices()
                 ->autocomplete()
                 ->setRequired(true),
-            BooleanField::new('isActive')
+            BooleanField::new('isActive'),
         ];
     }
-
 }
